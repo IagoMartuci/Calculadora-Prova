@@ -23,23 +23,25 @@ public class CalculadoraService
     public double Media(params double[] valores)
     {
         double soma = 0;
-        foreach (double valor in valores)
+        foreach (double valor in valores) // Percorre o Array valores até o fim e atribui o "valor" do índice ref. a cada volta na variável valor
         {
-            soma += valor;
+            soma += valor; // soma = soma + valor
         }
-        return soma / valores.Length;
+        return soma / valores.Length; // Quando o foreach termina de percorrer Array, ele retorna a soma de todos os valores dividido pelo "tamanho" do array de valores
     }
 
     public double Mediana(params double[] valores)
     {
-        Array.Sort(valores);
+        Array.Sort(valores); // Ordena o Array em ordem crescente (Reverse para decrescente)
         int tamanho = valores.Length;
-        if (tamanho % 2 == 0)
+        if (tamanho % 2 == 0) // Par
         {
+            // Se for par pega os 2 itens do meio e faz a média
             return (valores[tamanho / 2 - 1] + valores[tamanho / 2]) / 2;
         }
-        else
+        else // Impar
         {
+            // Se for impar paga apenas o item do meio e não faz média
             return valores[tamanho / 2];
         }
     }
